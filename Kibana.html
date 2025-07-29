@@ -3,46 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Echelon Data Hub - Kibana Page</title> <!-- Changed title for differentiation -->
-    <!-- Tailwind CSS CDN -->
+    <title>Echelon Data Hub - Kibana Page</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Saira Bold -->
     <link href="https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <style>
-        /* Custom font for a professional look, now exclusively Inter for general body text */
+        /* Custom font for a professional look */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #F2F7FE; /* Changed to #F2F7FE */
-            color: #333; /* Dark text for readability */
+            background-color: #F2F7FE;
+            color: #333;
         }
         /* Apply Saira Semi Condensed Bold to the header title specifically */
         .header-title {
             font-family: 'Saira Semi Condensed', sans-serif;
         }
-        /* Styling for the card effect */
-        .dashboard-card {
+        /* Base styling for both cards and list items */
+        .item-base {
             background-color: #ffffff;
             border-radius: 0.75rem; /* Rounded corners */
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Subtle shadow */
             transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-            /* Flex properties for consistent vertical alignment */
-            display: flex; /* Make it a flex container */
-            flex-direction: column; /* Stack items vertically */
-            justify-content: space-between; /* Distribute space between items, pushing button to bottom */
-            height: 100%; /* Ensure all cards stretch to the same height within the grid row */
+            padding: 1.5rem; /* Consistent padding for all items */
         }
-        .dashboard-card:hover {
-            transform: translateY(-5px); /* Lift effect on hover */
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Enhanced shadow */
+        .item-base:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 12px -3px rgba(0, 0, 0, 0.1), 0 3px 6px -2px rgba(0, 0, 0, 0.05);
         }
-        /* Ensure content within the card takes up available space */
-        .card-content {
-            flex-grow: 1; /* Allow this section to grow and push the button down */
-            display: flex;
-            flex-direction: column;
-            align-items: center; /* Keep content centered horizontally */
-            text-align: center; /* Keep text centered */
-            padding-bottom: 1rem; /* Add some padding above the button */
+
+        /* Styling for the small cards */
+        .dashboard-card {
+            @apply flex flex-col items-center text-center;
+            padding: 1.5rem;
+        }
+        /* New class for the text content wrapper within cards */
+        .card-text-content {
+            @apply flex flex-col flex-grow; /* Allows text content to grow and centers its children */
+        }
+        .dashboard-card .card-title {
+            @apply text-lg font-semibold text-gray-700 mb-2 text-center; /* Ensure text is centered */
+            min-height: 3.5rem; /* Minimum height for TWO lines of text-lg (1.75rem * 2) */
+            line-height: 1.75rem; /* Explicit line height for consistency */
+            /* Removed display: flex, align-items, justify-content from here */
+        }
+        .dashboard-card .card-description {
+            @apply text-gray-500 text-sm mb-4 text-center; /* Ensure text is centered */
+            min-height: 3.75rem; /* Minimum height for THREE lines of text-sm (1.25rem * 3) */
+            line-height: 1.25rem; /* Explicit line height for consistency */
+            /* Removed display: flex, align-items, justify-content from here */
+        }
+        .dashboard-card .card-button {
+            @apply w-full mt-auto; /* Added mt-auto to push button to the bottom */
+        }
+
+        /* Styling for the list items (remaining items) */
+        .dashboard-list-item {
+            @apply flex items-center justify-between;
+            margin-bottom: 1.5rem;
+            padding: 1.25rem 1.5rem;
+        }
+        .dashboard-list-item .list-item-content {
+            @apply flex flex-grow mr-6;
+        }
+        .dashboard-list-item .list-item-text {
+            /* Ensure text aligns left within the content block */
+            @apply text-left;
+        }
+        .dashboard-list-item .list-item-title {
+            @apply text-xl font-semibold text-gray-700 mb-2; /* Increased margin-bottom for consistency with cards */
+        }
+        .dashboard-list-item .list-item-description {
+            @apply text-gray-500 text-sm mb-3; /* Added margin-bottom for space before button */
+        }
+        .dashboard-list-item .list-item-button {
+            @apply flex-shrink-0;
+        }
+
+        /* Styling for the native <details> collapsible element */
+        summary {
+            list-style: none; /* Remove default marker for Firefox */
+        }
+        summary::-webkit-details-marker {
+            display: none; /* Remove default marker for Chrome/Safari */
+        }
+        details[open] > summary .details-arrow {
+            transform: rotate(180deg);
+        }
+
+        /* Adjustments for smaller screens */
+        @media (max-width: 768px) {
+            .dashboard-card {
+                padding: 1.25rem;
+            }
+            .dashboard-card .card-title {
+                margin-bottom: 0.5rem;
+                min-height: auto; /* Remove min-height on small screens if text is expected to wrap more freely */
+                line-height: normal;
+            }
+            .dashboard-card .card-description {
+                margin-bottom: 1rem;
+                min-height: auto; /* Remove min-height on small screens */
+                line-height: normal;
+            }
+            .dashboard-list-item {
+                flex-direction: column;
+                align-items: flex-start; /* Ensure text aligns left on small screens */
+                padding: 1.25rem;
+            }
+            .dashboard-list-item .list-item-content {
+                flex-direction: column;
+                align-items: flex-start; /* Ensure text aligns left on small screens */
+                text-align: left; /* Ensure text aligns left on small screens */
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+            .dashboard-list-item .list-item-title {
+                margin-bottom: 0.5rem; /* Adjusted for small screens */
+            }
+            .dashboard-list-item .list-item-description {
+                margin-bottom: 1rem; /* Adjusted for small screens */
+            }
+            .dashboard-list-item .list-item-button {
+                width: 100%;
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -53,16 +138,18 @@
         <div class="container mx-auto flex flex-col sm:flex-row justify-between items-center">
             <div class="flex items-center mb-2 sm:mb-0">
                 <!-- Company Logo - Changed back to Imgur link -->
-                <img src="https://i.imgur.com/uYlL4qT.png" alt="Company Logo" class="h-10 w-auto mr-3">
+                <a href="index.html"> <!-- Ensured logo is clickable -->
+                    <img src="https://i.imgur.com/uYlL4qT.png" alt="Company Logo" class="h-10 w-auto mr-3">
+                </a>
                 <h1 class="text-3xl font-bold header-title">Echelon Data Hub</h1>
             </div>
             <!-- Navigation/Quick Links for Looker and Kibana -->
             <nav class="flex space-x-4">
-                <!-- Looker button now redirects to index.html -->
+                <!-- Looker button redirects to index.html in the same tab -->
                 <a href="index.html" class="bg-[#009182] hover:bg-[#007064] text-white font-bold py-2 px-4 rounded-full transition-colors duration-200 shadow-md">
                     Looker
                 </a>
-                <!-- Kibana button already redirects to Kibana.html, no change needed here -->
+                <!-- Kibana button redirects to Kibana.html in the same tab -->
                 <a href="Kibana.html" class="bg-[#009182] hover:bg-[#007064] text-white font-bold py-2 px-4 rounded-full transition-colors duration-200 shadow-md">
                     Kibana
                 </a>
@@ -70,128 +157,157 @@
         </div>
     </header>
 
-    <!-- Main Content Area -->
     <main class="flex-grow container mx-auto p-6">
         <section class="text-center mb-10">
-            <h2 class="text-4xl font-extrabold text-gray-800 mb-4">Welcome to Your Central Data Hub</h2>
-            <p class="text-lg text-gray-600 max-w-2xl mx-auto">Access all your key business insights and analytics dashboards from one convenient location.</p>
+            <h2 class="text-4xl font-extrabold text-gray-800 mb-4">Kibana Dashboards and Quick Links</h2>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">Your Unified Gateway to Kibana Monitoring and Analytics Dashboards</p>
         </section>
 
-        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
-            <!-- Added items-stretch to the grid container to make all grid items (cards) the same height -->
-
-            <!-- Dashboard Card 1: Weekly Sales -->
-            <div class="dashboard-card p-6">
-                <div class="card-content">
-                    <img src="./images/bubTnah.svg" alt="Sales Image" class="w-16 h-16 mb-4">
-                    <h3 class="text-xl font-semibold text-gray-700 mb-2">Weekly Sales</h3>
-                    <p class="text-gray-500 mb-4">Weekly Comparison of Merchant Performance</p>
+        <section class="mb-10">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Key Performance Dashboards</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="item-base flex flex-col items-center text-center">
+                    <div class="card-text-content">
+                        <h3 class="text-lg font-semibold text-gray-700 mb-2">Initial Analysis Dashboard</h3>
+                        <p class="text-gray-500 text-sm mb-4">Quick Review of Key Performance Indicators</p>
+                    </div>
+                    <a href="https://globalkibana.prod.carpentum.tech/_plugin/kibana/app/dashboards?security_tenant=ECLP#/view/88f220f0-e273-11ee-98b8-478c04baa60f?_g=(filters%3A!()%2CrefreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3Anow%2Fd%2Cto%3Anow%2Fd))" target="_blank" rel="noopener noreferrer" class="w-full mt-auto bg-[#009182] hover:bg-[#007064] text-white font-bold py-2 px-4 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl">
+                        View Dashboard
+                    </a>
                 </div>
-                <a href="https://lookerstudio.google.com/reporting/bcb5cea8-f004-4105-996d-b4dbfa08fe8a" target="_blank" rel="noopener noreferrer" class="bg-[#009182] hover:bg-[#007064] text-white font-bold py-2 px-6 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl self-center">
-                    View Dashboard
-                </a>
+
+                <div class="item-base flex flex-col items-center text-center">
+                    <div class="card-text-content">
+                        <h3 class="text-lg font-semibold text-gray-700 mb-2">7-Day Sales Trend</h3>
+                        <p class="text-gray-500 text-sm mb-4">Overview of Volume and Profits for the Past 7 Days</p>
+                    </div>
+                    <a href="https://globalkibana.prod.carpentum.com/_plugin/kibana/app/dashboards?security_tenant=ECLP#/view/145e9ae0-6e53-11ef-98b8-478c04baa60f?_g=(filters%3A!()%2CrefreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3Anow-7d%2Fd%2Cto%3Anow))" target="_blank" rel="noopener noreferrer" class="w-full mt-auto bg-[#009182] hover:bg-[#007064] text-white font-bold py-2 px-4 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl">
+                        View Dashboard
+                    </a>
+                </div>
+
+                <div class="item-base flex flex-col items-center text-center">
+                    <div class="card-text-content">
+                        <h3 class="text-lg font-semibold text-gray-700 mb-2">Monthly Merchant KPIs</h3>
+                        <p class="text-gray-500 text-sm mb-4">Monthly Breakdown of Merchant Performance</p>
+                    </div>
+                    <a href="https://globalkibana.prod.carpentum.com/_plugin/kibana/app/dashboards?security_tenant=ECLP#/view/d150bb60-6e76-11ef-baff-f90070149a5a?_g=(filters%3A!()%2CrefreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3A'2024-12-31T16%3A00%3A00.000Z'%2Cto%3A'2025-12-31T16%3A00%3A00.000Z'))" target="_blank" rel="noopener noreferrer" class="w-full mt-auto bg-[#009182] hover:bg-[#007064] text-white font-bold py-2 px-4 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl">
+                        View Dashboard
+                    </a>
+                </div>
+
+                <div class="item-base flex flex-col items-center text-center">
+                    <div class="card-text-content">
+                        <h3 class="text-lg font-semibold text-gray-700 mb-2">Daily Local Volume</h3>
+                        <p class="text-gray-500 text-sm mb-4">Daily Volume per Method, Offset for Local Timezones</p>
+                    </div>
+                    <a href="https://globalkibana.prod.carpentum.com/_plugin/kibana/app/dashboards?security_tenant=ECLP#/view/98790d70-ef35-11ef-97b3-c5c4bda02117?_g=(filters%3A!()%2CrefreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3Anow-1w%2Fw%2Cto%3Anow))" target="_blank" rel="noopener noreferrer" class="w-full mt-auto bg-[#009182] hover:bg-[#007064] text-white font-bold py-2 px-4 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl">
+                        View Dashboard
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Additional Dashboards</h2>
+
+            <div class="rounded-lg overflow-hidden border border-gray-200 mt-10 mb-5">
+                <details>
+                    <summary class="bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-3 px-4 cursor-pointer flex justify-between items-center w-full text-left">
+                        <span>Merchant Services</span>
+                        <svg class="w-6 h-6 transform transition-transform duration-300 details-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </summary>
+                    <div class="p-4 bg-white">
+                        <div class="item-base mb-6 flex flex-col items-start p-5 md:flex-row md:items-center md:justify-between md:py-5 md:px-6">
+                            <div class="flex flex-grow flex-col items-start text-left mb-4 md:flex-row md:mr-6 md:mb-0">
+                                <div class="text-left">
+                                    <h3 class="text-xl font-semibold text-gray-700 mb-2">ECLP EOM Overview</h3>
+                                    <p class="text-gray-500 text-sm mb-3">Echelon Performance Overview for the Previous Month</p>
+                                </div>
+                            </div>
+                            <a href="https://lookerstudio.google.com/reporting/YOUR_CUSTOMER_DASHBOARD_ID/page/YOUR_PAGE_ID" target="_blank" rel="noopener noreferrer" class="w-full text-center md:w-auto flex-shrink-0 bg-[#009182] hover:bg-[#007064] text-white font-bold py-2 px-6 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl">
+                                View Dashboard
+                            </a>
+                        </div>
+
+                        <div class="item-base mb-6 flex flex-col items-start p-5 md:flex-row md:items-center md:justify-between md:py-5 md:px-6">
+                             <div class="flex flex-grow flex-col items-start text-left mb-4 md:flex-row md:mr-6 md:mb-0">
+                                <div class="text-left">
+                                    <h3 class="text-xl font-semibold text-gray-700 mb-2">Sales Capacity Utilization</h3>
+                                    <p class="text-gray-500 text-sm mb-3">Daily Utilization of Echelon Currency Capacity</p>
+                                </div>
+                            </div>
+                            <a href="https://lookerstudio.google.com/reporting/8105dafa-38d3-4bbf-8013-c28e7b28fe39" target="_blank" rel="noopener noreferrer" class="w-full text-center md:w-auto flex-shrink-0 bg-[#009182] hover:bg-[#007064] text-white font-bold py-2 px-6 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl">
+                                View Dashboard
+                            </a>
+                        </div>
+
+                        <!-- New Merchant Services Item 1 -->
+                        <div class="item-base mb-6 flex flex-col items-start p-5 md:flex-row md:items-center md:justify-between md:py-5 md:px-6">
+                            <div class="flex flex-grow flex-col items-start text-left mb-4 md:flex-row md:mr-6 md:mb-0">
+                                <div class="text-left">
+                                    <h3 class="text-xl font-semibold text-gray-700 mb-2">Merchant Onboarding Funnel</h3>
+                                    <p class="text-gray-500 text-sm mb-3">Track new merchant applications and activation rates.</p>
+                                </div>
+                            </div>
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="w-full text-center md:w-auto flex-shrink-0 bg-[#009182] hover:bg-[#007064] text-white font-bold py-2 px-6 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl">
+                                View Dashboard
+                            </a>
+                        </div>
+
+                        <!-- New Merchant Services Item 2 -->
+                        <div class="item-base flex flex-col items-start p-5 md:flex-row md:items-center md:justify-between md:py-5 md:px-6">
+                            <div class="flex flex-grow flex-col items-start text-left mb-4 md:flex-row md:mr-6 md:mb-0">
+                                <div class="text-left">
+                                    <h3 class="text-xl font-semibold text-gray-700 mb-2">Merchant Support Tickets</h3>
+                                    <p class="text-gray-500 text-sm mb-3">Overview of support ticket volume and resolution times.</p>
+                                </div>
+                            </div>
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="w-full text-center md:w-auto flex-shrink-0 bg-[#009182] hover:bg-[#007064] text-white font-bold py-2 px-6 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl">
+                                View Dashboard
+                            </a>
+                        </div>
+                    </div>
+                </details>
             </div>
 
-            <!-- Dashboard Card 2: Merchant Onboarding -->
-            <div class="dashboard-card p-6">
-                <div class="card-content">
-                    <img src="./images/cezvYqq.svg" alt="Merchant Onboarding Image" class="w-16 h-16 mb-4">
-                    <h3 class="text-xl font-semibold text-gray-700 mb-2">Merchant Onboarding</h3>
-                    <p class="text-gray-500 mb-4">Breakdown of Merchant Onboarding Progress</p>
-                </div>
-                <a href="https://lookerstudio.google.com/reporting/YOUR_MARKETING_DASHBOARD_ID/page/YOUR_PAGE_ID" target="_blank" rel="noopener noreferrer" class="bg-[#009182] hover:bg-[#007064] text-white font-bold py-2 px-6 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl self-center">
-                    View Dashboard
-                </a>
-            </div>
+            <!-- New Collapsible Category: Financial Operations -->
+            <div class="rounded-lg overflow-hidden border border-gray-200 mt-6 mb-5">
+                <details>
+                    <summary class="bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-3 px-4 cursor-pointer flex justify-between items-center w-full text-left">
+                        <span>Financial Operations</span>
+                        <svg class="w-6 h-6 transform transition-transform duration-300 details-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </summary>
+                    <div class="p-4 bg-white">
+                        <div class="item-base mb-6 flex flex-col items-start p-5 md:flex-row md:items-center md:justify-between md:py-5 md:px-6">
+                            <div class="flex flex-grow flex-col items-start text-left mb-4 md:flex-row md:mr-6 md:mb-0">
+                                <div class="text-left">
+                                    <h3 class="text-xl font-semibold text-gray-700 mb-2">Revenue Reconciliation</h3>
+                                    <p class="text-gray-500 text-sm mb-3">Daily reconciliation of incoming revenue streams.</p>
+                                </div>
+                            </div>
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="w-full text-center md:w-auto flex-shrink-0 bg-[#009182] hover:bg-[#007064] text-white font-bold py-2 px-6 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl">
+                                View Dashboard
+                            </a>
+                        </div>
 
-            <!-- Dashboard Card 3: Merchant Experience -->
-            <div class="dashboard-card p-6">
-                <div class="card-content">
-                    <img src="./images/l7hzrwa.svg" alt="Merchant Experience Image" class="w-16 h-16 mb-4">
-                    <h3 class="text-xl font-semibold text-gray-700 mb-2">Merchant Experience</h3>
-                    <p class="text-gray-500 mb-4">Performance KPIs from Merchant's Perspective</p>
-                </div>
-                <a href="https://lookerstudio.google.com/reporting/YOUR_FINANCIAL_DASHBOARD_ID/page/YOUR_PAGE_ID" target="_blank" rel="noopener noreferrer" class="bg-[#009182] hover:bg-[#007064] text-white font-bold py-2 px-6 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl self-center">
-                    View Dashboard
-                </a>
+                        <div class="item-base flex flex-col items-start p-5 md:flex-row md:items-center md:justify-between md:py-5 md:px-6">
+                             <div class="flex flex-grow flex-col items-start text-left mb-4 md:flex-row md:mr-6 md:mb-0">
+                                <div class="text-left">
+                                    <h3 class="text-xl font-semibold text-gray-700 mb-2">Expense Tracking & Analysis</h3>
+                                    <p class="text-gray-500 text-sm mb-3">Overview of operational expenses and budget adherence.</p>
+                                </div>
+                            </div>
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="w-full text-center md:w-auto flex-shrink-0 bg-[#009182] hover:bg-[#007064] text-white font-bold py-2 px-6 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl">
+                                View Dashboard
+                            </a>
+                        </div>
+                    </div>
+                </details>
             </div>
-
-            <!-- Dashboard Card 4: Monthly Sales -->
-            <div class="dashboard-card p-6">
-                <div class="card-content">
-                    <img src="./images/bubTnah.svg" alt="Sales Image" class="w-16 h-16 mb-4">
-                    <h3 class="text-xl font-semibold text-gray-700 mb-2">Monthly Sales</h3>
-                    <p class="text-gray-500 mb-4">Monthly Comparison of Merchant Performance</p>
-                </div>
-                <a href="https://lookerstudio.google.com/reporting/YOUR_OPERATIONAL_DASHBOARD_ID/page/YOUR_PAGE_ID" target="_blank" rel="noopener noreferrer" class="bg-[#009182] hover:bg-[#007064] text-white font-bold py-2 px-6 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl self-center">
-                    View Dashboard
-                </a>
-            </div>
-
-            <!-- Dashboard Card 5: ECLP EOM Overview -->
-            <div class="dashboard-card p-6">
-                <div class="card-content">
-                    <img src="./images/H5xSF0B.svg" alt="ECLP EOM Overview Image" class="w-16 h-16 mb-4">
-                    <h3 class="text-xl font-semibold text-gray-700 mb-2">ECLP EOM Overview</h3>
-                    <p class="text-gray-500 mb-4">Echelon Performance Overview for the Previous Month</p>
-                </div>
-                <a href="https://lookerstudio.google.com/reporting/YOUR_CUSTOMER_DASHBOARD_ID/page/YOUR_PAGE_ID" target="_blank" rel="noopener noreferrer" class="bg-[#009182] hover:bg-[#007064] text-white font-bold py-2 px-6 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl self-center">
-                    View Dashboard
-                </a>
-            </div>
-
-            <!-- Card 7: Sales Capacity Utilization (now in 6th position) -->
-            <div class="dashboard-card p-6">
-                <div class="card-content">
-                    <img src="./images/bgw1zXy.svg" alt="Sales Capacity Utilization Image" class="w-16 h-16 mb-4">
-                    <h3 class="text-xl font-semibold text-gray-700 mb-2">Sales Capacity Utilization</h3>
-                    <p class="text-gray-500 mb-4">Daily Utilization of Echelon Currency Capacity</p>
-                </div>
-                <a href="https://lookerstudio.google.com/reporting/8105dafa-38d3-4bbf-8013-c28e7b28fe39" target="_blank" rel="noopener noreferrer" class="bg-[#009182] hover:bg-[#007064] text-white font-bold py-2 px-6 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl self-center">
-                    View Dashboard
-                </a>
-            </div>
-
-            <!-- Card 6: Complaints & Frozen Funds (now in 7th position) -->
-            <div class="dashboard-card p-6">
-                <div class="card-content">
-                    <img src="./images/VA7G137.svg" alt="Complaints & Frozen Funds Image" class="w-16 h-16 mb-4">
-                    <h3 class="text-xl font-semibold text-gray-700 mb-2">Complaints & Frozen Funds</h3>
-                    <p class="text-gray-500 mb-4">Overview of Transaction Complaints and Associated Frozen Funds</p>
-                </div>
-                <a href="https://lookerstudio.google.com/reporting/YOUR_HR_DASHBOARD_ID/page/YOUR_PAGE_ID" target="_blank" rel="noopener noreferrer" class="bg-[#009182] hover:bg-[#007064] text-white font-bold py-2 px-6 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl self-center">
-                    View Dashboard
-                </a>
-            </div>
-
-            <!-- New Dashboard Card 8: Transaction Verification Summary -->
-            <div class="dashboard-card p-6">
-                <div class="card-content">
-                    <img src="./images/mM1P7hl.svg" alt="Transaction Verification Image" class="w-16 h-16 mb-4">
-                    <h3 class="text-xl font-semibold text-gray-700 mb-2">Transaction Verification Summary</h3>
-                    <p class="text-gray-500 mb-4">Weekly Breakdown of Merchant Inquiries and Transaction Verification Cases</p>
-                </div>
-                <a href="https://lookerstudio.google.com/reporting/YOUR_SUPPLY_CHAIN_DASHBOARD_ID/page/YOUR_PAGE_ID" target="_blank" rel="noopener noreferrer" class="bg-[#009182] hover:bg-[#007064] text-white font-bold py-2 px-6 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl self-center">
-                    View Dashboard
-                </a>
-            </div>
-
-            <!-- New Dashboard Card 9: Performance Analysis Dashboard -->
-            <div class="dashboard-card p-6">
-                <div class="card-content">
-                    <img src="./images/CE9VzqE.svg" alt="IT Operations Image" class="w-16 h-16 mb-4">
-                    <h3 class="text-xl font-semibold text-gray-700 mb-2">Performance Analysis Dashboard</h3>
-                    <p class="text-gray-500 mb-4">Echelon KPI Monitoring and Analysis Dashboard</p> <!-- KBI changed to KPI -->
-                </div>
-                <a href="https://lookerstudio.google.com/reporting/YOUR_IT_DASHBOARD_ID/page/YOUR_PAGE_ID" target="_blank" rel="noopener noreferrer" class="bg-[#009182] hover:bg-[#007064] text-white font-bold py-2 px-6 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl self-center">
-                    View Dashboard
-                </a>
-            </div>
-
         </section>
     </main>
 
-    <!-- Footer Section -->
     <footer class="bg-gray-800 text-white p-4">
         <div class="container mx-auto text-center text-sm">
             <p>&copy; 2025 Echelon Pro. All rights reserved.</p>
