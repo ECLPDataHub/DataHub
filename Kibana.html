@@ -133,23 +133,18 @@
 </head>
 <body class="min-h-screen flex flex-col">
 
-    <!-- Header Section -->
     <header class="bg-[#052743] text-white p-4 shadow-md">
         <div class="container mx-auto flex flex-col sm:flex-row justify-between items-center">
             <div class="flex items-center mb-2 sm:mb-0">
-                <!-- Company Logo - Changed back to Imgur link -->
-                <a href="index.html"> <!-- Ensured logo is clickable -->
+                <a href="index.html">
                     <img src="https://i.imgur.com/uYlL4qT.png" alt="Company Logo" class="h-10 w-auto mr-3">
                 </a>
                 <h1 class="text-3xl font-bold header-title">Echelon Data Hub</h1>
             </div>
-            <!-- Navigation/Quick Links for Looker and Kibana -->
             <nav class="flex space-x-4">
-                <!-- Looker button redirects to index.html in the same tab -->
                 <a href="index.html" class="bg-[#009182] hover:bg-[#007064] text-white font-bold py-2 px-4 rounded-full transition-colors duration-200 shadow-md">
                     Looker
                 </a>
-                <!-- Kibana button redirects to Kibana.html in the same tab -->
                 <a href="Kibana.html" class="bg-[#009182] hover:bg-[#007064] text-white font-bold py-2 px-4 rounded-full transition-colors duration-200 shadow-md">
                     Kibana
                 </a>
@@ -221,11 +216,11 @@
                         <div class="item-base mb-6 flex flex-col items-start p-5 md:flex-row md:items-center md:justify-between md:py-5 md:px-6">
                             <div class="flex flex-grow flex-col items-start text-left mb-4 md:flex-row md:mr-6 md:mb-0">
                                 <div class="text-left">
-                                    <h3 class="text-xl font-semibold text-gray-700 mb-2">ECLP EOM Overview</h3>
+                                    <h3 class="text-xl font-semibold text-gray-700 mb-2">MS - EOD Report EchelonPay - Payin Payout Settlement - All Currencies</h3>
                                     <p class="text-gray-500 text-sm mb-3">Echelon Performance Overview for the Previous Month</p>
                                 </div>
                             </div>
-                            <a href="https://lookerstudio.google.com/reporting/YOUR_CUSTOMER_DASHBOARD_ID/page/YOUR_PAGE_ID" target="_blank" rel="noopener noreferrer" class="w-full text-center md:w-auto flex-shrink-0 bg-[#009182] hover:bg-[#007064] text-white font-bold py-2 px-6 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl">
+                            <a href="https://globalkibana.prod.carpentum.tech/_plugin/kibana/app/dashboards?security_tenant=ECLP#/view/d95b7be0-a1c6-11eb-9ea0-a19995e321c6?_g=(filters%3A!()%2CrefreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3Anow-15m%2Cto%3Anow))" target="_blank" rel="noopener noreferrer" class="w-full text-center md:w-auto flex-shrink-0 bg-[#009182] hover:bg-[#007064] text-white font-bold py-2 px-6 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl">
                                 View Dashboard
                             </a>
                         </div>
@@ -233,37 +228,115 @@
                         <div class="item-base mb-6 flex flex-col items-start p-5 md:flex-row md:items-center md:justify-between md:py-5 md:px-6">
                              <div class="flex flex-grow flex-col items-start text-left mb-4 md:flex-row md:mr-6 md:mb-0">
                                 <div class="text-left">
-                                    <h3 class="text-xl font-semibold text-gray-700 mb-2">Sales Capacity Utilization</h3>
+                                    <h3 class="text-xl font-semibold text-gray-700 mb-2">MS - Hourly Performance - Payin - All Currencies</h3>
                                     <p class="text-gray-500 text-sm mb-3">Daily Utilization of Echelon Currency Capacity</p>
                                 </div>
                             </div>
-                            <a href="https://lookerstudio.google.com/reporting/8105dafa-38d3-4bbf-8013-c28e7b28fe39" target="_blank" rel="noopener noreferrer" class="w-full text-center md:w-auto flex-shrink-0 bg-[#009182] hover:bg-[#007064] text-white font-bold py-2 px-6 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl">
+                            <a href="https://globalkibana.prod.carpentum.tech/_plugin/kibana/app/dashboards?security_tenant=ECLP#/view/f4238d10-6fbf-11ec-b41d-9badbc3c089e?_g=(filters%3A!()%2CrefreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3Anow-15m%2Cto%3Anow))" target="_blank" rel="noopener noreferrer" class="w-full text-center md:w-auto flex-shrink-0 bg-[#009182] hover:bg-[#007064] text-white font-bold py-2 px-6 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl">
                                 View Dashboard
                             </a>
                         </div>
 
-                        <!-- New Merchant Services Item 1 -->
+                        <!-- Merchant Services Item 1 -->
                         <div class="item-base mb-6 flex flex-col items-start p-5 md:flex-row md:items-center md:justify-between md:py-5 md:px-6">
                             <div class="flex flex-grow flex-col items-start text-left mb-4 md:flex-row md:mr-6 md:mb-0">
                                 <div class="text-left">
-                                    <h3 class="text-xl font-semibold text-gray-700 mb-2">Merchant Onboarding Funnel</h3>
+                                    <h3 class="text-xl font-semibold text-gray-700 mb-2">MS - Hourly SR Performance - Payin - Payment Operators</h3>
                                     <p class="text-gray-500 text-sm mb-3">Track new merchant applications and activation rates.</p>
                                 </div>
                             </div>
-                            <a href="#" target="_blank" rel="noopener noreferrer" class="w-full text-center md:w-auto flex-shrink-0 bg-[#009182] hover:bg-[#007064] text-white font-bold py-2 px-6 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl">
+                            <a href="https://globalkibana.prod.carpentum.tech/_plugin/kibana/app/dashboards?security_tenant=ECLP#/view/ec3d5580-20d9-11f0-97b3-c5c4bda02117?_g=(filters%3A!()%2CrefreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3Anow-15m%2Cto%3Anow))" target="_blank" rel="noopener noreferrer" class="w-full text-center md:w-auto flex-shrink-0 bg-[#009182] hover:bg-[#007064] text-white font-bold py-2 px-6 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl">
                                 View Dashboard
                             </a>
                         </div>
 
-                        <!-- New Merchant Services Item 2 -->
-                        <div class="item-base flex flex-col items-start p-5 md:flex-row md:items-center md:justify-between md:py-5 md:px-6">
+                        <!-- Merchant Services Item 2 -->
+                        <div class="item-base mb-6 flex flex-col items-start p-5 md:flex-row md:items-center md:justify-between md:py-5 md:px-6">
                             <div class="flex flex-grow flex-col items-start text-left mb-4 md:flex-row md:mr-6 md:mb-0">
                                 <div class="text-left">
-                                    <h3 class="text-xl font-semibold text-gray-700 mb-2">Merchant Support Tickets</h3>
+                                    <h3 class="text-xl font-semibold text-gray-700 mb-2">MS - Daily Comparison - Payin and Payout - All Currencies</h3>
                                     <p class="text-gray-500 text-sm mb-3">Overview of support ticket volume and resolution times.</p>
                                 </div>
                             </div>
-                            <a href="#" target="_blank" rel="noopener noreferrer" class="w-full text-center md:w-auto flex-shrink-0 bg-[#009182] hover:bg-[#007064] text-white font-bold py-2 px-6 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl">
+                            <a href="https://globalkibana.prod.carpentum.tech/_plugin/kibana/app/dashboards?security_tenant=ECLP#/view/7c1430b0-a34d-11ec-8f9e-67c56f6650aa?_g=(filters%3A!()%2CrefreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3Anow-15m%2Cto%3Anow))" target="_blank" rel="noopener noreferrer" class="w-full text-center md:w-auto flex-shrink-0 bg-[#009182] hover:bg-[#007064] text-white font-bold py-2 px-6 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl">
+                                View Dashboard
+                            </a>
+                        </div>
+
+                        <!-- Merchant Services Item 3 -->
+                        <div class="item-base mb-6 flex flex-col items-start p-5 md:flex-row md:items-center md:justify-between md:py-5 md:px-6">
+                            <div class="flex flex-grow flex-col items-start text-left mb-4 md:flex-row md:mr-6 md:mb-0">
+                                <div class="text-left">
+                                    <h3 class="text-xl font-semibold text-gray-700 mb-2">MS - Daily Completion Rate - Payin - INR</h3>
+                                    <p class="text-gray-500 text-sm mb-3">Insights into merchant churn and retention rates.</p>
+                                </div>
+                            </div>
+                            <a href="https://globalkibana.prod.carpentum.tech/_plugin/kibana/app/dashboards?security_tenant=ECLP#/view/0557cde0-7014-11ec-a433-077a4dbf0cc2?_g=(filters%3A!()%2CrefreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3Anow-15m%2Cto%3Anow))" target="_blank" rel="noopener noreferrer" class="w-full text-center md:w-auto flex-shrink-0 bg-[#009182] hover:bg-[#007064] text-white font-bold py-2 px-6 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl">
+                                View Dashboard
+                            </a>
+                        </div>
+
+                        <!-- Merchant Services Item 4 -->
+                        <div class="item-base mb-6 flex flex-col items-start p-5 md:flex-row md:items-center md:justify-between md:py-5 md:px-6">
+                            <div class="flex flex-grow flex-col items-start text-left mb-4 md:flex-row md:mr-6 md:mb-0">
+                                <div class="text-left">
+                                    <h3 class="text-xl font-semibold text-gray-700 mb-2">MS - Daily Completion Rate for IDR Payin</h3>
+                                    <p class="text-gray-500 text-sm mb-3">Analysis of survey results and feedback channels.</p>
+                                </div>
+                            </div>
+                            <a href="https://globalkibana.prod.carpentum.tech/_plugin/kibana/app/dashboards?security_tenant=ECLP#/view/5f46c170-79ca-11ec-8553-9d98cbd93a51?_g=(filters%3A!()%2CrefreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3Anow-15m%2Cto%3Anow))" target="_blank" rel="noopener noreferrer" class="w-full text-center md:w-auto flex-shrink-0 bg-[#009182] hover:bg-[#007064] text-white font-bold py-2 px-6 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl">
+                                View Dashboard
+                            </a>
+                        </div>
+
+                        <!-- Merchant Services Item 5 -->
+                        <div class="item-base mb-6 flex flex-col items-start p-5 md:flex-row md:items-center md:justify-between md:py-5 md:px-6">
+                            <div class="flex flex-grow flex-col items-start text-left mb-4 md:flex-row md:mr-6 md:mb-0">
+                                <div class="text-left">
+                                    <h3 class="text-xl font-semibold text-gray-700 mb-2">MS - Daily Completion Rate - Payin - MYR</h3>
+                                    <p class="text-gray-500 text-sm mb-3">Real-time monitoring of suspicious transaction patterns.</p>
+                                </div>
+                            </div>
+                            <a href="https://globalkibana.prod.carpentum.tech/_plugin/kibana/app/dashboards?security_tenant=ECLP#/view/7819d0c0-72a9-11ec-b41d-9badbc3c089e?_g=(filters%3A!()%2CrefreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3Anow-15m%2Cto%3Anow))" target="_blank" rel="noopener noreferrer" class="w-full text-center md:w-auto flex-shrink-0 bg-[#009182] hover:bg-[#007064] text-white font-bold py-2 px-6 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl">
+                                View Dashboard
+                            </a>
+                        </div>
+
+                        <!-- Merchant Services Item 6 -->
+                        <div class="item-base mb-6 flex flex-col items-start p-5 md:flex-row md:items-center md:justify-between md:py-5 md:px-6">
+                            <div class="flex flex-grow flex-col items-start text-left mb-4 md:flex-row md:mr-6 md:mb-0">
+                                <div class="text-left">
+                                    <h3 class="text-xl font-semibold text-gray-700 mb-2">MS - Daily Completion Rate - Payin - VND</h3>
+                                    <p class="text-gray-500 text-sm mb-3">Dashboards for regulatory compliance and audit trails.</p>
+                                </div>
+                            </div>
+                            <a href="https://globalkibana.prod.carpentum.tech/_plugin/kibana/app/dashboards?security_tenant=ECLP#/view/381e0a50-e79c-11ec-b85d-5327453705f5?_g=(filters%3A!()%2CrefreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3Anow-15m%2Cto%3Anow))" target="_blank" rel="noopener noreferrer" class="w-full text-center md:w-auto flex-shrink-0 bg-[#009182] hover:bg-[#007064] text-white font-bold py-2 px-6 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl">
+                                View Dashboard
+                            </a>
+                        </div>
+
+                        <!-- Merchant Services Item 7 -->
+                        <div class="item-base mb-6 flex flex-col items-start p-5 md:flex-row md:items-center md:justify-between md:py-5 md:px-6">
+                            <div class="flex flex-grow flex-col items-start text-left mb-4 md:flex-row md:mr-6 md:mb-0">
+                                <div class="text-left">
+                                    <h3 class="text-xl font-semibold text-gray-700 mb-2">MS - Daily Completion Rate - Payin - USDT</h3>
+                                    <p class="text-gray-500 text-sm mb-3">Key performance indicators for customer support.</p>
+                                </div>
+                            </div>
+                            <a href="https://globalkibana.prod.carpentum.tech/_plugin/kibana/app/dashboards?security_tenant=ECLP#/view/50094d60-c4be-11ec-8055-f37ae81ed529?_g=(filters%3A!()%2CrefreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3Anow-15m%2Cto%3Anow))" target="_blank" rel="noopener noreferrer" class="w-full text-center md:w-auto flex-shrink-0 bg-[#009182] hover:bg-[#007064] text-white font-bold py-2 px-6 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl">
+                                View Dashboard
+                            </a>
+                        </div>
+
+                        <!-- Merchant Services Item 8 -->
+                        <div class="item-base flex flex-col items-start p-5 md:flex-row md:items-center md:justify-between md:py-5 md:px-6">
+                            <div class="flex flex-grow flex-col items-start text-left mb-4 md:flex-row md:mr-6 md:mb-0">
+                                <div class="text-left">
+                                    <h3 class="text-xl font-semibold text-gray-700 mb-2">MS - Daily Completion Rate - Payin - KRW</h3>
+                                    <p class="text-gray-500 text-sm mb-3">Analyze product adoption and usage across merchants.</p>
+                                </div>
+                            </div>
+                            <a href="https://globalkibana.prod.carpentum.tech/_plugin/kibana/app/dashboards?security_tenant=ECLP#/view/933b2770-a2f8-11ed-aff0-57183eeaf9e5?_g=(filters%3A!()%2CrefreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3Anow-15m%2Cto%3Anow))" target="_blank" rel="noopener noreferrer" class="w-full text-center md:w-auto flex-shrink-0 bg-[#009182] hover:bg-[#007064] text-white font-bold py-2 px-6 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl">
                                 View Dashboard
                             </a>
                         </div>
@@ -282,23 +355,83 @@
                         <div class="item-base mb-6 flex flex-col items-start p-5 md:flex-row md:items-center md:justify-between md:py-5 md:px-6">
                             <div class="flex flex-grow flex-col items-start text-left mb-4 md:flex-row md:mr-6 md:mb-0">
                                 <div class="text-left">
-                                    <h3 class="text-xl font-semibold text-gray-700 mb-2">Revenue Reconciliation</h3>
+                                    <h3 class="text-xl font-semibold text-gray-700 mb-2">FO - Completion Rate - Payout - All Currencies</h3>
                                     <p class="text-gray-500 text-sm mb-3">Daily reconciliation of incoming revenue streams.</p>
                                 </div>
                             </div>
-                            <a href="#" target="_blank" rel="noopener noreferrer" class="w-full text-center md:w-auto flex-shrink-0 bg-[#009182] hover:bg-[#007064] text-white font-bold py-2 px-6 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl">
+                            <a href="https://globalkibana.prod.carpentum.tech/_plugin/kibana/app/dashboards?security_tenant=ECLP#/view/9d063d50-541d-11ed-ab1e-1362a360f2b4?_g=(filters%3A!()%2CrefreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3Anow-15m%2Cto%3Anow))" target="_blank" rel="noopener noreferrer" class="w-full text-center md:w-auto flex-shrink-0 bg-[#009182] hover:bg-[#007064] text-white font-bold py-2 px-6 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl">
                                 View Dashboard
                             </a>
                         </div>
 
-                        <div class="item-base flex flex-col items-start p-5 md:flex-row md:items-center md:justify-between md:py-5 md:px-6">
+                        <div class="item-base mb-6 flex flex-col items-start p-5 md:flex-row md:items-center md:justify-between md:py-5 md:px-6">
                              <div class="flex flex-grow flex-col items-start text-left mb-4 md:flex-row md:mr-6 md:mb-0">
                                 <div class="text-left">
-                                    <h3 class="text-xl font-semibold text-gray-700 mb-2">Expense Tracking & Analysis</h3>
+                                    <h3 class="text-xl font-semibold text-gray-700 mb-2">Turnover Report - Payout and Settlement - All Currencies</h3>
                                     <p class="text-gray-500 text-sm mb-3">Overview of operational expenses and budget adherence.</p>
                                 </div>
                             </div>
-                            <a href="#" target="_blank" rel="noopener noreferrer" class="w-full text-center md:w-auto flex-shrink-0 bg-[#009182] hover:bg-[#007064] text-white font-bold py-2 px-6 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl">
+                            <a href="https://globalkibana.prod.carpentum.tech/_plugin/kibana/app/dashboards?security_tenant=ECLP#/view/3ecfc690-16d6-11ed-84fe-ffc81cbe6370?_g=(filters%3A!()%2CrefreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3A'2025-03-31T16%3A00%3A00.000Z'%2Cto%3A'2025-04-30T15%3A59%3A59.999Z'))" target="_blank" rel="noopener noreferrer" class="w-full text-center md:w-auto flex-shrink-0 bg-[#009182] hover:bg-[#007064] text-white font-bold py-2 px-6 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl">
+                                View Dashboard
+                            </a>
+                        </div>
+                        <!-- Financial Operations Item 3 -->
+                        <div class="item-base mb-6 flex flex-col items-start p-5 md:flex-row md:items-center md:justify-between md:py-5 md:px-6">
+                            <div class="flex flex-grow flex-col items-start text-left mb-4 md:flex-row md:mr-6 md:mb-0">
+                                <div class="text-left">
+                                    <h3 class="text-xl font-semibold text-gray-700 mb-2">OPS - Daily Sales in Local</h3>
+                                    <p class="text-gray-500 text-sm mb-3">Forecasting future cash inflows and outflows.</p>
+                                </div>
+                            </div>
+                            <a href="https://globalkibana.prod.carpentum.tech/_plugin/kibana/app/dashboards?security_tenant=ECLP#/view/98790d70-ef35-11ef-97b3-c5c4bda02117?_g=(filters%3A!()%2CrefreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3Anow-1w%2Fw%2Cto%3Anow))" target="_blank" rel="noopener noreferrer" class="w-full text-center md:w-auto flex-shrink-0 bg-[#009182] hover:bg-[#007064] text-white font-bold py-2 px-6 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl">
+                                View Dashboard
+                            </a>
+                        </div>
+                        <!-- Financial Operations Item 4 -->
+                        <div class="item-base mb-6 flex flex-col items-start p-5 md:flex-row md:items-center md:justify-between md:py-5 md:px-6">
+                            <div class="flex flex-grow flex-col items-start text-left mb-4 md:flex-row md:mr-6 md:mb-0">
+                                <div class="text-left">
+                                    <h3 class="text-xl font-semibold text-gray-700 mb-2">MS - EOD Report EchelonPay - Payin Payout Settlement - All Currencies</h3>
+                                    <p class="text-gray-500 text-sm mb-3">Comparison of planned financial performance against actual results.</p>
+                                </div>
+                            </div>
+                            <a href="https://globalkibana.prod.carpentum.tech/_plugin/kibana/app/dashboards?security_tenant=ECLP#/view/d95b7be0-a1c6-11eb-9ea0-a19995e321c6?_g=(filters%3A!()%2CrefreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3Anow%2Fd%2Cto%3Anow%2Fd))" target="_blank" rel="noopener noreferrer" class="w-full text-center md:w-auto flex-shrink-0 bg-[#009182] hover:bg-[#007064] text-white font-bold py-2 px-6 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl">
+                                View Dashboard
+                            </a>
+                        </div>
+                        <!-- Financial Operations Item 5 -->
+                        <div class="item-base mb-6 flex flex-col items-start p-5 md:flex-row md:items-center md:justify-between md:py-5 md:px-6">
+                            <div class="flex flex-grow flex-col items-start text-left mb-4 md:flex-row md:mr-6 md:mb-0">
+                                <div class="text-left">
+                                    <h3 class="text-xl font-semibold text-gray-700 mb-2">FO - INR Member Manual Pairing KPI</h3>
+                                    <p class="text-gray-500 text-sm mb-3">Tracking and management of outstanding payments to vendors.</p>
+                                </div>
+                            </div>
+                            <a href="https://globalkibana.prod.carpentum.tech/_plugin/kibana/app/dashboards?security_tenant=ECLP#/view/46d63cd0-74b6-11ef-92b4-6b9157db365a?_g=(filters%3A!()%2CrefreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3Anow-15m%2Cto%3Anow))" target="_blank" rel="noopener noreferrer" class="w-full text-center md:w-auto flex-shrink-0 bg-[#009182] hover:bg-[#007064] text-white font-bold py-2 px-6 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl">
+                                View Dashboard
+                            </a>
+                        </div>
+                        <!-- Financial Operations Item 6 -->
+                        <div class="item-base mb-6 flex flex-col items-start p-5 md:flex-row md:items-center md:justify-between md:py-5 md:px-6">
+                            <div class="flex flex-grow flex-col items-start text-left mb-4 md:flex-row md:mr-6 md:mb-0">
+                                <div class="text-left">
+                                    <h3 class="text-xl font-semibold text-gray-700 mb-2">FO - MYR Member Manual Pairing KPI</h3>
+                                    <p class="text-gray-500 text-sm mb-3">Analysis of outstanding customer invoices by due date.</p>
+                                </div>
+                            </div>
+                            <a href="https://globalkibana.prod.carpentum.tech/_plugin/kibana/app/dashboards?security_tenant=ECLP#/view/437436a0-c024-11ef-9033-d5663834b909?_g=(filters%3A!()%2CrefreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3Anow-15m%2Cto%3Anow))" target="_blank" rel="noopener noreferrer" class="w-full text-center md:w-auto flex-shrink-0 bg-[#009182] hover:bg-[#007064] text-white font-bold py-2 px-6 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl">
+                                View Dashboard
+                            </a>
+                        </div>
+                        <!-- Financial Operations Item 7 -->
+                        <div class="item-base flex flex-col items-start p-5 md:flex-row md:items-center md:justify-between md:py-5 md:px-6">
+                            <div class="flex flex-grow flex-col items-start text-left mb-4 md:flex-row md:mr-6 md:mb-0">
+                                <div class="text-left">
+                                    <h3 class="text-xl font-semibold text-gray-700 mb-2">FO - IDR Member Manual Pairing KPI</h3>
+                                    <p class="text-gray-500 text-sm mb-3">Summary of payroll expenses and compensation trends.</p>
+                                </div>
+                            </div>
+                            <a href="https://globalkibana.prod.carpentum.tech/_plugin/kibana/app/dashboards?security_tenant=ECLP#/view/a6194d10-6c43-11f0-9552-5735f8db7932?_g=(filters%3A!()%2CrefreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3Anow-15m%2Cto%3Anow))" target="_blank" rel="noopener noreferrer" class="w-full text-center md:w-auto flex-shrink-0 bg-[#009182] hover:bg-[#007064] text-white font-bold py-2 px-6 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl">
                                 View Dashboard
                             </a>
                         </div>
